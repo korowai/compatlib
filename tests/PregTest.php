@@ -1,19 +1,18 @@
 <?php
-/**
- * @file Tests/PregTest.php
+
+/*
+ * This file is part of Korowai framework.
  *
- * This file is part of the Korowai package
+ * (c) Paweł Tomulik <ptomulik@meil.pw.edu.pl>
  *
- * @author Paweł Tomulik <ptomulik@meil.pw.edu.pl>
- * @package korowai\compatlib
- * @license Distributed under MIT license.
+ * Distributed under MIT license.
  */
 
 declare(strict_types=1);
 
-namespace Korowai\Lib\Compat\Tests;
+namespace Korowai\Tests\Lib\Compat;
 
-use PHPUnit\Framework\TestCase;
+use Korowai\Testing\TestCase;
 
 use Korowai\Lib\Compat\Exception\PregException;
 use Korowai\Lib\Compat\Preg;
@@ -48,8 +47,8 @@ class PregTest extends TestCase
 
     public function test__callPregFunc()
     {
-        $this->assertSame(1, Preg::callPregFunc('\preg_match', ['/bar/', 'foo bar geez']));
-        $this->assertSame(0, Preg::callPregFunc('\preg_match', ['/bob/', 'foo bar geez']));
+        $this->assertSame(1, Preg::callPregFunc('\preg_match', ['/bar/', 'foo bar baz']));
+        $this->assertSame(0, Preg::callPregFunc('\preg_match', ['/bob/', 'foo bar baz']));
     }
 
     public function test__callPregFunc__triggeredError()
